@@ -1,0 +1,35 @@
+parameters:
+    # Adds a fallback VARNISH_URL if the env var is not set.
+    # This allows you to run cache:warmup even if your
+    # environment variables are not available yet.
+    # You should not need to change this value.
+    env(VARNISH_URL): ''
+
+api_platform:
+    collection:
+        pagination:
+            items_per_page: 20
+            maximum_items_per_page: 250
+            client_items_per_page: true
+            items_per_page_parameter_name: itemsPerPage
+    enable_re_doc: false
+    show_webby: false
+    swagger:
+        api_keys:
+            apiKey:
+                name: Authorization
+                type: header
+    mapping:
+        paths: ['%kernel.project_dir%/src/Entity']
+    # Varnish integration, remove if unwanted
+    http_cache:
+        invalidation:
+            enabled: true
+            varnish_urls: ['%env(VARNISH_URL)%']
+        max_age: 0
+        shared_max_age: 3600
+        vary: ['Content-Type', 'Authorization']
+        public: true
+    # Mercure integration, remove if unwanted
+    mercure:
+        hub_url: '%env(MERCURE_SUBSCRIBE_URL)%'
