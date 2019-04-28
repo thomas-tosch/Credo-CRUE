@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -21,6 +24,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     "put"={"access_control"="is_granted('ROLE_USER')"},
  *     "delete"={"access_control"="is_granted('ROLE_USER')"}
  *     })
+ * @ApiFilter(SearchFilter::class)
+ * @ApiFilter(DateFilter::class, properties={"date"})
  * @ORM\Entity(repositoryClass="App\Repository\ResourcesRepository")
  */
 class Resources

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,6 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(attributes={"access_control"="is_granted('ROLE_USER')"})
+ * @ApiFilter(SearchFilter::class, properties=
+ *     {"email": "partial", "name": "partial", "first_name": "partial"})
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  */
 class Users implements UserInterface

@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -21,7 +24,11 @@ use Doctrine\ORM\Mapping as ORM;
  *     "delete"={"access_control"="is_granted('ROLE_USER')"}
  *     }
  * )
- *
+ * @ApiFilter(SearchFilter::class, properties=
+ *     {"title": "partial", "author": "partial",
+ *     "Description": "partial", "revue": "partial", "language": "partial", "type": "partial"})
+ * @ApiFilter(DateFilter::class, properties=
+ *     {"date"})
  * @ORM\Entity(repositoryClass="App\Repository\ArticlesRepository")
  */
 class Articles
