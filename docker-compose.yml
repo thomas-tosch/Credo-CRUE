@@ -92,5 +92,16 @@ services:
       - "8443:8443"
       - "8444:8444"
 
+  cep: 
+    container_name: cep
+    build: 
+      context: ./cep
+      dockerfile: Dockerfile
+    volumes:
+      - './cep:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '4200:4200'  
+
 volumes:
   db-data: {}
