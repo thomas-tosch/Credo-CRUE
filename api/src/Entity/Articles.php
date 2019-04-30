@@ -26,7 +26,8 @@ use Doctrine\ORM\Mapping as ORM;
  * )
  * @ApiFilter(SearchFilter::class, properties=
  *     {"title": "partial", "author": "partial",
- *     "Description": "partial", "revue": "partial", "language": "partial", "type": "partial"})
+ *     "Description": "partial", "revue": "partial", "language": "partial", "type": "partial",
+ *     "project.name": "exact"})
  * @ApiFilter(DateFilter::class, properties=
  *     {"date"})
  * @ORM\Entity(repositoryClass="App\Repository\ArticlesRepository")
@@ -95,6 +96,12 @@ class Articles
      * @ORM\OneToMany(targetEntity="App\Entity\GeoPoints", mappedBy="article", orphanRemoval=true)
      */
     private $geoPoints;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Project")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $project;
 
     /**
      * Articles constructor.
@@ -350,6 +357,18 @@ class Articles
                 $geoPoint->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getProject(): ?Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(?Project $project): self
+    {
+        $this->project = $project;
 
         return $this;
     }

@@ -24,7 +24,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     "put"={"access_control"="is_granted('ROLE_USER')"},
  *     "delete"={"access_control"="is_granted('ROLE_USER')"}
  *     })
- * @ApiFilter(SearchFilter::class)
+ * @ApiFilter(SearchFilter::class, strategy="partial")
  * @ApiFilter(DateFilter::class, properties={"date"})
  * @ORM\Entity(repositoryClass="App\Repository\ResourcesRepository")
  */
@@ -144,6 +144,12 @@ class Resources
      * @ApiSubresource()
      */
     private $comments;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Project")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $project;
 
     /**
      * Resources constructor.
@@ -576,6 +582,18 @@ class Resources
                 $comments->setResources(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getProject(): ?Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(?Project $project): self
+    {
+        $this->project = $project;
 
         return $this;
     }
