@@ -1,19 +1,26 @@
+<img class="banner" src="assets/img/banner.png">
 <mat-toolbar color="primary">
     <div fxHide.gt-xs>
         <button mat-icon-button (click)="onToggleSidenav()">
             <mat-icon>menu</mat-icon>
         </button>
     </div>
-    <div>
-        <a routerLink="/home">Owner-Account</a>
-    </div>
     <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xl>
-        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+        <ul fxLayout fxLayoutGap="35px" class="navigation-items">
             <li>
-                <a routerLink="/Actualité">Actualité</a>
+                <a routerLink="/Accueil">Accueil</a>
             </li>
             <li>
-                <a routerLink="/ok">ok</a>
+                <a routerLink="/Articles">Articles</a>
+            </li>
+            <li>
+                <a routerLink="/Appel aux témoins">Appel aux témoins</a>
+            </li>
+            <li>
+                <a routerLink="/Ressources">Ressources</a>
+            </li>
+            <li>
+                <a routerLink="/A_propos">A propos</a>
             </li>
         </ul>
     </div>
