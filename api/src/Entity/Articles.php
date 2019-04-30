@@ -92,11 +92,17 @@ class Articles
     private $link;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\GeoPoints", mappedBy="article", orphanRemoval=true)
+     */
+    private $geoPoints;
+
+    /**
      * Articles constructor.
      */
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->geoPoints = new ArrayCollection();
     }
 
     /**
@@ -313,6 +319,37 @@ class Articles
     public function setLink(string $link): self
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|GeoPoints[]
+     */
+    public function getGeoPoints(): Collection
+    {
+        return $this->geoPoints;
+    }
+
+    public function addGeoPoint(GeoPoints $geoPoint): self
+    {
+        if (!$this->geoPoints->contains($geoPoint)) {
+            $this->geoPoints[] = $geoPoint;
+            $geoPoint->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGeoPoint(GeoPoints $geoPoint): self
+    {
+        if ($this->geoPoints->contains($geoPoint)) {
+            $this->geoPoints->removeElement($geoPoint);
+            // set the owning side to null (unless already changed)
+            if ($geoPoint->getArticle() === $this) {
+                $geoPoint->setArticle(null);
+            }
+        }
 
         return $this;
     }

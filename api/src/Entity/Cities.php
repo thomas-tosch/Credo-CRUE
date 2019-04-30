@@ -5,6 +5,8 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Cities
      * @ORM\Column(type="float")
      */
     private $lon;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\GeoPoints", mappedBy="city", orphanRemoval=true)
+     */
+    private $geoPoints;
+
+    public function __construct()
+    {
+        $this->geoPoints = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -79,6 +91,37 @@ class Cities
     public function setLon(float $lon): self
     {
         $this->lon = $lon;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|GeoPoints[]
+     */
+    public function getGeoPoints(): Collection
+    {
+        return $this->geoPoints;
+    }
+
+    public function addGeoPoint(GeoPoints $geoPoint): self
+    {
+        if (!$this->geoPoints->contains($geoPoint)) {
+            $this->geoPoints[] = $geoPoint;
+            $geoPoint->setCity($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGeoPoint(GeoPoints $geoPoint): self
+    {
+        if ($this->geoPoints->contains($geoPoint)) {
+            $this->geoPoints->removeElement($geoPoint);
+            // set the owning side to null (unless already changed)
+            if ($geoPoint->getCity() === $this) {
+                $geoPoint->setCity(null);
+            }
+        }
 
         return $this;
     }
