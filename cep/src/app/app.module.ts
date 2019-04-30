@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { RoutingModule } from './routing/routing.module';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { FooterComponent } from './navigation/footer/footer.component';
+import { GridPresse } from './home/grid-presse/grid-presse.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     LayoutComponent,
     HomeComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    FooterComponent,
+    GridPresse
   ],
   imports: [
     BrowserModule,
