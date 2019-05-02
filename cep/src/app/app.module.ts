@@ -15,8 +15,11 @@ import {GridPresse} from './home/grid-presse/grid-presse.component';
 import {LoginComponent} from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
-import {MatCardModule, MatInputModule, MatProgressSpinnerModule} from "@angular/material";
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {MatCardModule, MatInputModule, MatProgressSpinnerModule} from '@angular/material';
+import {LoaderComponent} from './loader/loader.component';
+import {LoaderService} from './services/loader/loader.service';
+import {LoaderInterceptor} from './interceptors/loader/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import {MatCardModule, MatInputModule, MatProgressSpinnerModule} from "@angular/
     SidenavListComponent,
     FooterComponent,
     GridPresse,
-    LoginComponent
+    LoginComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ import {MatCardModule, MatInputModule, MatProgressSpinnerModule} from "@angular/
     MatCardModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [LoaderService,
+    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
