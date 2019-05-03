@@ -19,7 +19,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MatCardModule, MatInputModule, MatProgressSpinnerModule} from '@angular/material';
 import {LoaderComponent} from './loader/loader.component';
 import {LoaderService} from './services/loader/loader.service';
-import {LoaderInterceptor} from './interceptors/loader/loader.interceptor';
+import {HttpclientInterceptor} from './interceptors/loader/httpclient.interceptor';
+import {AuthService} from "./services/auth/auth.service";
 
 @NgModule({
   declarations: [
@@ -46,8 +47,9 @@ import {LoaderInterceptor} from './interceptors/loader/loader.interceptor';
     MatCardModule,
     MatProgressSpinnerModule
   ],
-  providers: [LoaderService,
-    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true}
+  providers: [AuthService,
+      LoaderService,
+    {provide: HTTP_INTERCEPTORS, useClass: HttpclientInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

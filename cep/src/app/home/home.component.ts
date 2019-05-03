@@ -15,5 +15,4 @@ export class HomeComponent implements OnInit {
   public executeSelectedChange = (event) => {
     console.log(event);
   }
-
 }
