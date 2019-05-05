@@ -8,27 +8,31 @@ import { By } from '@angular/platform-browser';
 // import 'rxjs/add/observable/throw';
 
 import {Component, Directive} from '@angular/core';
-import {AppComponent} from './app.component';
+import {HomeComponent} from './home.component';
 
-describe('AppComponent', () => {
+describe('HomeComponent', () => {
   let fixture;
   let component;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        HomeComponent
       ],
       providers: [
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     }).compileComponents();
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(HomeComponent);
     component = fixture.debugElement.componentInstance;
   });
 
   it('should create a component', async () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should run #ngOnInit()', async () => {
+    // const result = component.ngOnInit();
   });
 
 });

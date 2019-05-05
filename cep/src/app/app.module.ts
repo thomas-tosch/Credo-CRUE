@@ -6,21 +6,21 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 
 import {AppComponent} from './app.component';
 import {LayoutComponent} from './layout/layout.component';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './component/home/home.component';
 import {RoutingModule} from './routing/routing.module';
 import {HeaderComponent} from './navigation/header/header.component';
 import {SidenavListComponent} from './navigation/sidenav-list/sidenav-list.component';
 import {FooterComponent} from './navigation/footer/footer.component';
-import {GridPresse} from './home/grid-presse/grid-presse.component';
-import {LoginComponent} from './login/login.component';
+import {GridPresse} from './component/home/grid-presse/grid-presse.component';
+import {LoginComponent} from './component/login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MatCardModule, MatInputModule, MatProgressSpinnerModule} from '@angular/material';
-import {LoaderComponent} from './loader/loader.component';
+import {LoaderComponent} from './component/loader/loader.component';
 import {LoaderService} from './services/loader/loader.service';
 import {HttpclientInterceptor} from './interceptors/loader/httpclient.interceptor';
-import {AuthService} from "./services/auth/auth.service";
+import {AuthService} from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import {AuthService} from "./services/auth/auth.service";
     FooterComponent,
     GridPresse,
     LoginComponent,
-    LoaderComponent
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

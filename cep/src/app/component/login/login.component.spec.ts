@@ -8,27 +8,48 @@ import { By } from '@angular/platform-browser';
 // import 'rxjs/add/observable/throw';
 
 import {Component, Directive} from '@angular/core';
-import {AppComponent} from './app.component';
+import {LoginComponent} from './login.component';
+import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import {AuthService} from '../../services/auth/auth.service';
+import {Router} from '@angular/router';
+import {HttpClientModule} from "@angular/common/http";
 
-describe('AppComponent', () => {
+@Injectable()
+class MockAuthService { }
+
+@Injectable()
+class MockRouter { navigate = jest.fn(); }
+
+describe('LoginComponent', () => {
   let fixture;
   let component;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+        ReactiveFormsModule,
+          HttpClientModule
+      ],
       declarations: [
-        AppComponent
+        LoginComponent
       ],
       providers: [
+        FormBuilder,
+        {provide: AuthService, useClass: MockAuthService},
+        {provide: Router, useClass: MockRouter},
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     }).compileComponents();
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(LoginComponent);
     component = fixture.debugElement.componentInstance;
   });
 
   it('should create a component', async () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should run #login()', async () => {
+    // const result = component.login();
   });
 
 });

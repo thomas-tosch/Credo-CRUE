@@ -1,12 +1,19 @@
-import { TestBed } from '@angular/core/testing';
-
-import { LoaderService } from './loader.service';
+import { async } from '@angular/core/testing';
+import {LoaderService} from './loader.service';
 
 describe('LoaderService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let service;
 
-  it('should be created', () => {
-    const service: LoaderService = TestBed.get(LoaderService);
-    expect(service).toBeTruthy();
+  beforeEach(() => {
+    service = new LoaderService();
   });
+
+  it('should run #show()', async () => {
+    // const result = show();
+  });
+
+  it('should run #hide()', async () => {
+    // const result = hide();
+  });
+
 });

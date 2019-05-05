@@ -8,22 +8,27 @@ import { By } from '@angular/platform-browser';
 // import 'rxjs/add/observable/throw';
 
 import {Component, Directive} from '@angular/core';
-import {AppComponent} from './app.component';
+import {LoaderComponent} from './loader.component';
+import {LoaderService} from '../../services/loader/loader.service';
 
-describe('AppComponent', () => {
+@Injectable()
+class MockLoaderService { }
+
+describe('LoaderComponent', () => {
   let fixture;
   let component;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        LoaderComponent
       ],
       providers: [
+        {provide: LoaderService, useClass: MockLoaderService},
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     }).compileComponents();
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(LoaderComponent);
     component = fixture.debugElement.componentInstance;
   });
 
