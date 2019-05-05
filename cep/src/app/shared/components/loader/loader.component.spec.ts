@@ -9,7 +9,7 @@ import { By } from '@angular/platform-browser';
 
 import {Component, Directive} from '@angular/core';
 import {LoaderComponent} from './loader.component';
-import {LoaderService} from '../../services/loader/loader.service';
+import {LoaderService} from '../../../core/services/loader/loader.service';
 
 @Injectable()
 class MockLoaderService { }

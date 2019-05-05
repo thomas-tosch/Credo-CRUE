@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Routes, RouterModule} from '@angular/router';
-import {HomeComponent} from '../component/home/home.component';
-import {LoginComponent} from '../component/login/login.component';
+import {HomeComponent} from '../../home/home.component';
+import {LoginComponent} from '../components/login/login.component';
+import {AuthGuard} from '../../core/guards/auth-guard.service';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   exports: [
     RouterModule
   ],
-  declarations: []
+  declarations: [],
+  providers: [AuthGuard]
 })
 export class RoutingModule {
 }

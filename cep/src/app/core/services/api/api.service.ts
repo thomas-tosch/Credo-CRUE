@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../environments/environment';
 import {map, tap} from 'rxjs/operators';
-import {Articles} from '../../models/Articles';
+import {Articles} from '../../../shared/models/Articles';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ApiResource} from '../../models/ApiResource';
-import {Serializer} from '../../interfaces/serializer/Serializer';
-import {QueryOptions} from '../../interfaces/queryoptions/query-options';
+import {ApiResource} from '../../../shared/models/ApiResource';
+import {Serializer} from '../../../shared/interfaces/serializer/Serializer';
+import {QueryOptions} from '../../../shared/interfaces/queryoptions/query-options';
 
 const API_URL = environment.apiEndpoint;
 

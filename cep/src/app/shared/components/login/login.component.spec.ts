@@ -10,7 +10,7 @@ import { By } from '@angular/platform-browser';
 import {Component, Directive} from '@angular/core';
 import {LoginComponent} from './login.component';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
-import {AuthService} from '../../services/auth/auth.service';
+import {AuthService} from '../../../core/services/auth/auth.service';
 import {Router} from '@angular/router';
 import {HttpClientModule} from "@angular/common/http";
 

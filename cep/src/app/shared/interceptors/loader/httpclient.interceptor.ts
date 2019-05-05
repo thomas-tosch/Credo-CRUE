@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {finalize} from 'rxjs/operators';
-import {LoaderService} from '../../services/loader/loader.service';
-import {AuthService} from '../../services/auth/auth.service';
+import {LoaderService} from '../../../core/services/loader/loader.service';
+import {AuthService} from '../../../core/services/auth/auth.service';
 
 @Injectable()
 export class HttpclientInterceptor implements HttpclientInterceptor {
