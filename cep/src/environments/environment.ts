@@ -3,9 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apiEndpoint: document.location.protocol + '//localhost'
-  + document.location.protocol == 'https:' ? ':8444': ':8081'
+    production: false,
+    apiEndpoint: document.location.protocol + '//localhost' + (document.location.protocol === 'https:' ? ':8444' : ':8081')
 };
 
 /*

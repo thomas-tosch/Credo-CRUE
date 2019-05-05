@@ -1,4 +1,4 @@
-import {ApiResource} from "../../models/ApiResource";
+import {ApiResource} from '../../models/ApiResource';
 
 export interface Serializer {
     fromJson(json: any): ApiResource;

@@ -1,5 +1,6 @@
-export class Articles {
-    id: number;
+import {ApiResource} from './ApiResource';
+
+export class Articles extends ApiResource {
     title: string;
     author: string;
     thumbnail: string;

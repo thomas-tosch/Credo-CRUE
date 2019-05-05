@@ -9,13 +9,13 @@ export class QueryOptions implements QueryBuilder {
 
     constructor() {
         this.pageNumber = 1;
-        this.pageSize = 10000;
+        this.pageSize = 20;
     }
 
     toQueryMap() {
         const queryMap = new Map<string, string>();
-        queryMap.set('pageNumber', `${this.pageNumber}`);
-        queryMap.set('pageSize', `${this.pageSize}`);
+        queryMap.set('page', `${this.pageNumber}`);
+        queryMap.set('itemsPerPage', `${this.pageSize}`);
 
         return queryMap;
     }
