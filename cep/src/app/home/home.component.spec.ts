@@ -9,6 +9,8 @@ import { By } from '@angular/platform-browser';
 
 import {Component, Directive} from '@angular/core';
 import {HomeComponent} from './home.component';
+import {ArticlesApiService} from "../core/services/api/articles/articles.api.service";
+import {HttpClient, HttpHandler} from "@angular/common/http";
 
 describe('HomeComponent', () => {
   let fixture;
@@ -20,6 +22,9 @@ describe('HomeComponent', () => {
         HomeComponent
       ],
       providers: [
+          ArticlesApiService,
+          HttpClient,
+          HttpHandler
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     }).compileComponents();
