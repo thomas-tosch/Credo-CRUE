@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../../environments/environment';
-import {map, tap} from 'rxjs/operators';
-import {Articles} from '../../../shared/models/Articles';
+import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ApiResource} from '../../../shared/models/ApiResource';
@@ -10,9 +9,6 @@ import {QueryOptions} from '../../../shared/interfaces/queryoptions/query-option
 
 const API_URL = environment.apiEndpoint;
 
-@Injectable({
-    providedIn: 'root'
-})
 export class ApiService<T extends ApiResource> {
 
     public first = '';

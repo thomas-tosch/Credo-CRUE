@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="1db6cc9a977f9ab640d4794214922775a6de0785" datatype="html">
+        <source>Accueil</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/header/header.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Website&apos;s home</note>
+      </trans-unit>
+      <trans-unit id="3b6143a528c6f4586e60e9af4ced8ac0fbe08251" datatype="html">
+        <source>Articles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/header/header.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Articles section</note>
+      </trans-unit>
+      <trans-unit id="c6889d694428889de8a5ae977ea54e89fc56e37b" datatype="html">
+        <source>Appel aux témoins</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/header/header.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Witness reports section</note>
+      </trans-unit>
+      <trans-unit id="144eae2386b91c6e439a7da2b792f36033beb198" datatype="html">
+        <source>Ressources</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/header/header.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Resources section</note>
+      </trans-unit>
+      <trans-unit id="75d8553871b8bf51ec744c06ac5a2441538df461" datatype="html">
+        <source>A propos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/header/header.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">About section</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
